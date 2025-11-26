@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #00e5c4;
+  --color-accent: #8b5cf6;
+  --color-dark: #071029;
+  --color-light: #f7fbfb;
+  --motion-fast: 120ms;
+  --motion-base: 260ms;
+  --motion-slow: 480ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+    --motion-slow: 0ms;
+  }
+}
+
+* {
+  @apply antialiased;
+}
+
+body {
+  @apply min-h-screen bg-light-shell font-sans text-ink transition-colors duration-[var(--motion-base)] ease-smooth dark:bg-night-sky dark:text-white;
+}
+
+.neon-card {
+  @apply rounded-3xl border border-white/10 bg-white/80 p-6 text-dark-navy shadow-glow backdrop-blur-xl transition duration-[var(--motion-base)] ease-smooth hover:-translate-y-1 hover:shadow-neon-ring dark:bg-white/5 dark:text-white;
+}
+
+.glass-panel {
+  @apply rounded-2xl border border-white/10 bg-white/70 p-6 shadow-glow backdrop-blur-2xl dark:bg-white/10;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-dark-navy shadow-glow transition duration-[var(--motion-base)] hover:-translate-y-0.5 hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full border border-white/40 bg-transparent px-6 py-3 text-sm font-semibold text-white transition duration-[var(--motion-base)] hover:-translate-y-0.5 hover:border-primary hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+}
+
+.focus-ring {
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+}
+

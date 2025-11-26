@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border border-white/10 bg-white/10 shadow-glow backdrop-blur-xl;
+  }
+  
+  .medical-card {
+    @apply rounded-xl bg-card-white dark:bg-card-dark shadow-medical border border-border-light dark:border-border-dark;
+  }
+  
+  .medical-card-hover {
+    @apply medical-card transition-all duration-300 hover:shadow-medical-lg hover:-translate-y-1;
+  }
+  
+  .kpi-card {
+    @apply medical-card p-6;
+  }
+  
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-text-secondary dark:text-text-secondary transition-all duration-200 hover:bg-primary-light dark:hover:bg-primary/10 hover:text-primary dark:hover:text-primary;
+  }
+  
+  .sidebar-link-active {
+    @apply sidebar-link bg-primary-light dark:bg-primary/20 text-primary dark:text-primary font-semibold;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-primary hover:bg-primary-hover text-white rounded-lg font-medium transition-all duration-200 shadow-medical hover:shadow-medical-lg;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-background-light dark:bg-card-dark text-text-dark dark:text-text-light border border-border-light dark:border-border-dark rounded-lg font-medium transition-all duration-200 hover:bg-primary-light dark:hover:bg-primary/10;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-border-light dark:border-border-dark bg-card-white dark:bg-card-dark text-text-dark dark:text-text-light placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200;
+  }
+  
+  .skeleton {
+    @apply animate-pulse bg-border-light dark:bg-border-dark rounded;
+  }
+  
+  .skeleton-shimmer {
+    @apply relative overflow-hidden;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s linear infinite;
+  }
+  
+  .dark .skeleton-shimmer {
+    background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+    background-size: 1000px 100%;
+  }
+}

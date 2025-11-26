@@ -1,0 +1,31 @@
+name: Scan Sehat CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Backend install
+        working-directory: backend
+        run: npm install
+      - name: Backend lint & build
+        working-directory: backend
+        run: |
+          npm run build
+      - name: Frontend install
+        working-directory: frontend
+        run: npm install
+      - name: Frontend build
+        working-directory: frontend
+        run: npm run build
+
